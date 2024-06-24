@@ -41,6 +41,7 @@
     return estDate.toDateString();
 }
 
+
 function greeting(name) {
     let hour = new Date().getHours();
     let greeting;
@@ -63,7 +64,7 @@ function getOrder() {
         let arrivalDate = calcDevDate();
         let greetingMessage = greeting(customerName);
 
-        document.getElementById('orderDetails').innerHTML = `
+        document.getElementById('orderDetail').innerHTML = `
             <p>${greetingMessage}</p>
             <p>Item Ordered: ${item}</p>
             <p>Quantity: ${quantity}</p>
