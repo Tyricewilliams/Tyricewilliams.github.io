@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyrice's fitness store </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href="index.html">Tyrice's Portfolio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" href="#">Lab 3</a>
+           </li>
+        <li class="nav-item">
+            <a class="nav-link" href="lab4.html">Lab 4</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+    <div class="jumbotron text-center">
+        <h1>Lab 4: Tyrices Fitness Lab!</h1>
+        <p>Order your favorite Preworkout!</p>
+    </div>
+    <div class="container">
+        <div id="OrderDetail"></div>
+    </div>
+    <script>
+       function calcDevDate() {
+    let dateNow = new Date();
+    let estDate = new Date(dateNow);
+    estDate.setDate(dateNow.getDate() + 7);
+    return estDate.toDateString();
+}
+
+function greeting(name) {
+    let hour = new Date().getHours();
+    let greeting;
+    if (hour < 12) {
+        greeting = "Good morning Gymrat!";
+    } else if (hour < 18) {
+        greeting = "Good Afternoon GymRat!";
+    } else {
+        greeting = "Good Evening GymRat.. Late start Huh?";
+    }
+    return `${greeting} ${name}, thank you for your order, Happy Lifting!`;
+}
+
+function getOrder() {
+    let customerName = prompt("What's your name Gymrat?:");
+    let item = prompt("What preworkout would you like?:");
+    let quantity = prompt("How much of the item would you like? (1-99):");
+
+    if (customerName && item && quantity) {
+        let arrivalDate = calcDevDate();
+        let greetingMessage = greeting(customerName);
+
+        document.getElementById('orderDetails').innerHTML = `
+            <p>${greetingMessage}</p>
+            <p>Item Ordered: ${item}</p>
+            <p>Quantity: ${quantity}</p>
+            <p>Expected Arrival Date: ${arrivalDate}</p>
+        `;
+    } else {
+        alert("All fields are required to complete your order.");
+    }
+}
+
+alert("Welcome to A GymRat's Paradise!");
+getOrder();
+
+
+    </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
