@@ -64,12 +64,12 @@ function getOrder() {
         let arrivalDate = calcDevDate();
         let greetingMessage = greeting(customerName);
 
-        document.getElementById('orderDetail').innerHTML = ` 
-            <p>${greetingMessage}</p>
-            <p>Item Ordered: ${item}</p>
-            <p>Quantity: ${quantity}</p>
-            <p>Expected Arrival Date: ${arrivalDate}</p>
-        `;
+        document.writeln(`
+                    <p>${greetingMessage}</p>
+                    <p>Item Ordered: ${item}</p>
+                    <p>Quantity: ${quantity}</p>
+                    <p>Expected Arrival Date: ${arrivalDate}</p>
+                `);
     } else {
         alert("All fields are required to complete your order.");
     }
