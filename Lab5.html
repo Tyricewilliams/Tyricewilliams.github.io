@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyrice OffBrand PRE workout Store </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    .container {
+        margin-top: 50px;
+    }
+    .asterisks {
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Register for Your OFFBRAND pre sample pack....Its FREE</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Get wit it</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+    </div>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const dob = document.getElementById('dob').value;
+
+            const user = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                dob: dob
+            };
+
+            const resultDiv = document.getElementById('result');
+
+            if (validateForm(user)) {
+                user.password = maskPassword(user.password);
+                resultDiv.innerHTML = `
+                    <h3>Registration welcome to the crew Gymrat</h3>
+                    <p><strong>First Name:</strong> ${user.firstName}</p>
+                    <p><strong>Last Name:</strong> ${user.lastName}</p>
+                    <p><strong>Email:</strong> ${user.email}</p>
+                    <p><strong>Date of Birth:</strong> ${user.dob}</p>
+                    <p><strong>Password:</strong> <span class="asterisks">${user.password}</span></p>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <h3>Bro come on the instructions are pretty clear</h3>
+                    <p>All fields must be filled and the password must contain a special character (! or ?).</p>
+                `;
+            }
+        });
+
+        function validateForm(user) {
+            const passwordRegex = /[!?]/;
+            return user.firstName && user.lastName && user.email && user.password && user.dob && passwordRegex.test(user.password);
+        }
+
+        function maskPassword(password) {
+            return '*'.repeat(password.length);
+        }
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
