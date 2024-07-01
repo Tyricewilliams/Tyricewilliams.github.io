@@ -1,11 +1,11 @@
-document.getElementById('fetchButton').addEventListener('click', function() {
+document.getElementById('loadDataButton').addEventListener('click', function() {
     fetch('https://brianobruno.github.io/cats.json')
         .then(response => response.json())
         .then(data => {
-           
+       
             data.facts.sort((a, b) => a.factId - b.factId);
 
-            const tableBody = document.getElementById('dataTable');
+            const tableBody = document.getElementById('factsTable');
             tableBody.innerHTML = ''; 
 
             data.facts.forEach(fact => {
@@ -13,15 +13,15 @@ document.getElementById('fetchButton').addEventListener('click', function() {
                 const factIdCell = document.createElement('td');
                 factIdCell.textContent = fact.factId;
                 const factTextCell = document.createElement('td');
-                factTextCell.textContent = fact.fact;
+                factTextCell.textContent = fact.text;
 
                 row.appendChild(factIdCell);
                 row.appendChild(factTextCell);
                 tableBody.appendChild(row);
             });
 
-            
-            document.getElementById('catImage').src = data.image;
+           
+            document.getElementById('catImage').src = data.catPhoto;
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .catch(error => console.error('Error fetching data:', error)); // Log errors
 });
