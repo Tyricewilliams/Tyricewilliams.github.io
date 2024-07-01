@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats For GymRats</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Tyrice's Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Lab 3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Lab4.html">Lab 4</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Lab5.html">Lab 5</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Lab6.html">Lab 6</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Lab 6 - Pre Workout Can Cause Heart Problems But Cats Help! </h1>
+        <button id="fetchButton" class="btn btn-primary mb-3">Fetch Data</button>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Fact ID</th>
+                    <th>Fact</th>
+                </tr>
+            </thead>
+            <tbody id="dataTable">
+               
+            </tbody>
+        </table>
+        <h2>Cat Picture</h2>
+        <img id="catImage" src="data:image/jpeg;base64,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" alt="Cat Picture" class="img-fluid">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+</body>
+</html>
+
