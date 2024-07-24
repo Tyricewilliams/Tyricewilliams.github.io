@@ -6,6 +6,24 @@
     <title>Marvel's Database - Characters</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="background.css">
+    <style>
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            #search-button {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,31 +38,34 @@
                         <a class="nav-link active" aria-current="page" href="final.html">Characters</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="comics.html">Comics</a>
+                        <a class="nav-link" href="Comics.html">Comics</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="container mt-4">
-        <h1>Marvel's Character Database</h1>
-        <p>Keep up with the marvel cinematic universe here!</p>
+        <h1 class="text-center mb-4">Marvel's Character Database</h1>
+        <p class="text-center">Keep up with the Marvel Cinematic Universe here!</p>
         <section id="characters">
-            <h2>Marvel Characters</h2>
-            <p>Enter character names from movies to learn more about them.</p>
-            <div class="mb-3">
-                <input type="text" id="character-search" class="form-control" placeholder="Search characters here...">
+            <h2 class="text-center mb-3">Marvel Characters</h2>
+            <p class="text-center mb-4">Enter character names from movies to learn more about them.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <input type="text" id="character-search" class="form-control" placeholder="Search characters here...">
+                    </div>
+                    <button id="search-button" class="btn btn-primary">Find Your Hero/Villain</button>
+                </div>
             </div>
-            <button id="search-button" class="btn btn-primary">Find Your Hero/Villain</button>
             <div id="characters-container" class="row mt-4"></div>
         </section>
     </div>
-
     <footer class="text-center py-3 mt-5">
         <p>Data provided by Marvel API. © 2024 MARVEL</p>
         <p>Page Created By Tyrice Williams</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="final.js"></script>
 </body>
